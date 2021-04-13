@@ -43,6 +43,7 @@ int main(void) {
 	int numeroIngresado2;
 	int suma;
 	int resta;
+	//int multiplica;
 	int banderaNumero1;
 	int banderaNumero2;
 	int banderaOperacion;
@@ -55,7 +56,8 @@ int main(void) {
 
 	do
 	{
-		printf("\n1. Ingrese primer operador\n");
+		printf("\n>>>MENU CALCULADORA<<<");
+		printf("\n\n1. Ingrese primer operador\n");
 		printf("2. Ingrese segundo operador\n");
 		printf("3. Calcular todas las operaciones\n");
 		printf("4. Mostrar todas las operaciones\n");
@@ -85,6 +87,7 @@ int main(void) {
 				{
 					suma= numeroIngresado1 + numeroIngresado2;
 					resta = numeroIngresado1 - numeroIngresado2;
+					//multiplica = numeroIngresado1 * numeroIngresado2;
 					banderaOperacion = 1;
 					printf("\n|Se calculan todas las operaciones|\n");
 				}
