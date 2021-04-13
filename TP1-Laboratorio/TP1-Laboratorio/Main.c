@@ -39,25 +39,36 @@
 int main(void) {
 
 	int opcion;
-	int numeroIngresado1;
+	int	numeroIngresado1;
 	int numeroIngresado2;
 	int suma;
 	int resta;
-	//int multiplica;
+	int multiplica;
+	float divide;
+	int factorial;
+	int factorial2;
 	int banderaNumero1;
 	int banderaNumero2;
 	int banderaOperacion;
+	float aux;
+	int i;
+	int j;
 
 	banderaNumero1 = 0;
 	banderaNumero2 = 0;
 	banderaOperacion = 0;
+	factorial = 1;
+	factorial2 = 1;
+	numeroIngresado1=0;
+	numeroIngresado2=0;
 
 	setbuf(stdout, NULL);
 
 	do
 	{
-		printf("\n>>>MENU CALCULADORA<<<");
-		printf("\n\n1. Ingrese primer operador\n");
+		printf(">>>MENU CALCULADORA<<<");
+		printf("\n|>A= %d<|\n|>B= %d<|\n", numeroIngresado1,numeroIngresado2);
+		printf("\n1. Ingrese primer operador\n");
 		printf("2. Ingrese segundo operador\n");
 		printf("3. Calcular todas las operaciones\n");
 		printf("4. Mostrar todas las operaciones\n");
@@ -67,43 +78,78 @@ int main(void) {
 		switch(opcion)
 		{
 			case 1:
-				printf("\n ingrese un numero: ");
+				printf("\nIngrese un numero: ");
 				scanf("%d", &numeroIngresado1);
 				banderaNumero1 = 1;
-				printf("\n|Se guardo el primer operador|\n");
+				printf("\n|Se guardo el primer operador|\n\n");
 			break;
 			case 2:
-				printf("\n ingrese un segundo numero: ");
+				printf("\nIngrese un segundo numero: ");
 				scanf("%d", &numeroIngresado2);
 				banderaNumero2 = 1;
-				printf("\n|Se guardo el segundo operador|\n");
+				printf("\n|Se guardo el segundo operador|\n\n");
 			break;
 			case 3:
 				if(banderaNumero1 == 0 || banderaNumero2==0)
 				{
+					printf("\n¡¡Falta ingresar operando!!\n\n");
 					continue;
 				}
 				else
 				{
+					printf("\n|Se calculan todas las operaciones|\n\n");
 					suma= numeroIngresado1 + numeroIngresado2;
 					resta = numeroIngresado1 - numeroIngresado2;
-					//multiplica = numeroIngresado1 * numeroIngresado2;
+					multiplica = numeroIngresado1 * numeroIngresado2;
+					aux = numeroIngresado1;
+					divide = aux / numeroIngresado2;
+					for(i = numeroIngresado1; i > 1; i--)
+					    {
+					        factorial *= i;
+					    }
+					for(j = numeroIngresado2; j > 1; j--)
+						{
+							factorial2 *= j;
+						}
 					banderaOperacion = 1;
-					printf("\n|Se calculan todas las operaciones|\n");
+
 				}
 
 			break;
 			case 4:
 				if(banderaOperacion==1)
 				{
-					printf("\nEl resultado de la suma es: %d\n", suma);
-					printf("\nEl resultado de la resta es: %d\n", resta);
-					printf("\n|Se muestran todas las operaciones|\n");
+					printf("\n|Se muestran todas las operaciones|\n\n");
+					printf("\nEl resultado de la suma (A+B) es: %d\n", suma);
+					printf("\nEl resultado de la resta (A-B) es: %d\n", resta);
+					printf("\nEl resultado de la multiplicacion (A*B) es: %d\n", multiplica);
+
+					if(numeroIngresado2!=0)
+					{
+						printf("\nEl resultado de la division (A/B) es: %.2f\n", divide);
+					}
+					else
+					{
+						printf("\nNo se puede dividir por cero\n");
+					}
+					printf("\nEl factorial de numero A es: %d\n",factorial);
+
+					printf("\nEl factorial de numero B es: %d\n",factorial2);
 				}
 				else
 				{
+					printf("\n¡¡Falta realizar operaciones!!\n\n");
 					continue;
 				}
+				i=0;
+				j=0;
+				numeroIngresado1=0;
+				numeroIngresado2=0;
+				banderaNumero1=0;
+				banderaNumero2=0;
+				banderaOperacion=0;
+				factorial=1;
+				factorial2=1;
 			break;
 			case 5:
 				printf("\n|Esta saliendo del programa|\n");
