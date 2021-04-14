@@ -31,8 +31,10 @@
  */
 
 
+
 #include <stdio.h>
 #include <stdlib.h>
+#include "Tp1-Funciones.h"
 
 
 
@@ -59,15 +61,17 @@ int main(void) {
 	banderaOperacion = 0;
 	factorial = 1;
 	factorial2 = 1;
-	numeroIngresado1=0;
-	numeroIngresado2=0;
+	numeroIngresado1= 0;
+	numeroIngresado2= 0;
+
 
 	setbuf(stdout, NULL);
 
 	do
 	{
 		printf(">>>MENU CALCULADORA<<<");
-		printf("\n|>A= %d<|\n|>B= %d<|\n", numeroIngresado1,numeroIngresado2);
+		//printf("\n|>A= %d<|\n|>B= %d<|\n", numeroIngresado1,numeroIngresado2);
+		MostrarOperando(numeroIngresado1, numeroIngresado2);
 		printf("\n1. Ingrese primer operador\n");
 		printf("2. Ingrese segundo operador\n");
 		printf("3. Calcular todas las operaciones\n");
@@ -78,15 +82,17 @@ int main(void) {
 		switch(opcion)
 		{
 			case 1:
-				printf("\nIngrese un numero: ");
-				scanf("%d", &numeroIngresado1);
+				/*printf("\nIngrese un numero: ");
+				scanf("%d", &numeroIngresado1);*/
 				banderaNumero1 = 1;
+				numeroIngresado1 = IngresarOperando();
 				printf("\n|Se guardo el primer operador|\n\n");
 			break;
 			case 2:
-				printf("\nIngrese un segundo numero: ");
-				scanf("%d", &numeroIngresado2);
+				/*printf("\nIngrese un segundo numero: ");
+				scanf("%d", &numeroIngresado2);*/
 				banderaNumero2 = 1;
+				numeroIngresado2= IngresarOperando();
 				printf("\n|Se guardo el segundo operador|\n\n");
 			break;
 			case 3:
@@ -143,8 +149,8 @@ int main(void) {
 				}
 				i=0;
 				j=0;
-				numeroIngresado1=0;
-				numeroIngresado2=0;
+				//numeroIngresado1=0;
+				//numeroIngresado2=0;
 				banderaNumero1=0;
 				banderaNumero2=0;
 				banderaOperacion=0;
