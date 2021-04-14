@@ -52,17 +52,17 @@ int main(void) {
 	int banderaNumero1;
 	int banderaNumero2;
 	int banderaOperacion;
-	float aux;
-	int i;
-	int j;
+	//float aux;
+	//int i;
+	//int j;
 
 	banderaNumero1 = 0;
 	banderaNumero2 = 0;
 	banderaOperacion = 0;
 	factorial = 1;
 	factorial2 = 1;
-	numeroIngresado1= 0;
-	numeroIngresado2= 0;
+	numeroIngresado1= -1111;
+	numeroIngresado2= -1111;
 
 
 	setbuf(stdout, NULL);
@@ -70,14 +70,13 @@ int main(void) {
 	do
 	{
 		printf(">>>MENU CALCULADORA<<<");
-		//printf("\n|>A= %d<|\n|>B= %d<|\n", numeroIngresado1,numeroIngresado2);
 		MostrarOperando(numeroIngresado1, numeroIngresado2);
 		printf("\n1. Ingrese primer operador\n");
 		printf("2. Ingrese segundo operador\n");
 		printf("3. Calcular todas las operaciones\n");
 		printf("4. Mostrar todas las operaciones\n");
 		printf("5. Salir\n");
-		printf("Ingrese una opcion: ");
+		printf("Elija una opcion(1-5): ");
 		scanf("%d", &opcion);
 		switch(opcion)
 		{
@@ -86,25 +85,28 @@ int main(void) {
 				scanf("%d", &numeroIngresado1);*/
 				banderaNumero1 = 1;
 				numeroIngresado1 = IngresarOperando();
-				printf("\n|Se guardo el primer operador|\n\n");
+				printf("\n|-Se guardo el primer operador-|\n\n");
+				printf("-----------------------------------------------------------------\n\n");
 			break;
 			case 2:
 				/*printf("\nIngrese un segundo numero: ");
 				scanf("%d", &numeroIngresado2);*/
 				banderaNumero2 = 1;
 				numeroIngresado2= IngresarOperando();
-				printf("\n|Se guardo el segundo operador|\n\n");
+				printf("\n|-Se guardo el segundo operador-|\n");
+				printf("-----------------------------------------------------------------\n\n");
 			break;
 			case 3:
 				if(banderaNumero1 == 0 || banderaNumero2==0)
 				{
 					printf("\n¡¡Falta ingresar operando!!\n\n");
+					printf("-----------------------------------------------------------------\n\n");
 					continue;
 				}
 				else
 				{
-					printf("\n|Se calculan todas las operaciones|\n\n");
-					suma= numeroIngresado1 + numeroIngresado2;
+					printf("\n|-Se calculan todas las operaciones-|\n\n");
+					/*suma= numeroIngresado1 + numeroIngresado2;
 					resta = numeroIngresado1 - numeroIngresado2;
 					multiplica = numeroIngresado1 * numeroIngresado2;
 					aux = numeroIngresado1;
@@ -116,8 +118,18 @@ int main(void) {
 					for(j = numeroIngresado2; j > 1; j--)
 						{
 							factorial2 *= j;
-						}
+						}*/
 					banderaOperacion = 1;
+
+					suma=SumarOperandos(numeroIngresado1, numeroIngresado2);
+					resta=RestarOperandos(numeroIngresado1, numeroIngresado2);
+					multiplica=MultiplicarOperandos(numeroIngresado1, numeroIngresado2);
+					divide=DividirOperandos(numeroIngresado1, numeroIngresado2);
+					factorial = FactorialOperando(numeroIngresado1);
+					factorial2 = FactorialOperando(numeroIngresado2);
+
+					RecibirResultados(suma, resta, multiplica, divide, factorial, factorial2);
+					printf("-----------------------------------------------------------------\n\n");
 
 				}
 
@@ -125,7 +137,7 @@ int main(void) {
 			case 4:
 				if(banderaOperacion==1)
 				{
-					printf("\n|Se muestran todas las operaciones|\n\n");
+					printf("\n|-Se muestran todas las operaciones-|\n");
 					printf("\nEl resultado de la suma (A+B) es: %d\n", suma);
 					printf("\nEl resultado de la resta (A-B) es: %d\n", resta);
 					printf("\nEl resultado de la multiplicacion (A*B) es: %d\n", multiplica);
@@ -140,25 +152,33 @@ int main(void) {
 					}
 					printf("\nEl factorial de numero A es: %d\n",factorial);
 
-					printf("\nEl factorial de numero B es: %d\n",factorial2);
+					printf("\nEl factorial de numero B es: %d\n\n",factorial2);
+					numeroIngresado1=0;
+					numeroIngresado2=0;
+					banderaNumero1=0;
+					banderaNumero2=0;
+					banderaOperacion=0;
+					printf("-----------------------------------------------------------------\n\n");
 				}
 				else
 				{
 					printf("\n¡¡Falta realizar operaciones!!\n\n");
+					printf("-----------------------------------------------------------------\n\n");
 					continue;
 				}
-				i=0;
-				j=0;
+				//i=0;
+				//j=0;
 				//numeroIngresado1=0;
 				//numeroIngresado2=0;
 				banderaNumero1=0;
 				banderaNumero2=0;
 				banderaOperacion=0;
-				factorial=1;
-				factorial2=1;
+				//factorial=1;
+				//factorial2=1;
 			break;
 			case 5:
-				printf("\n|Esta saliendo del programa|\n");
+				printf("\n|-Esta saliendo del programa-|\n");
+				printf("-----------------------------------------------------------------\n\n");
 			break;
 		}
 
