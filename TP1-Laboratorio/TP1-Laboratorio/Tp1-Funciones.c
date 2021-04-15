@@ -2,31 +2,30 @@
  * Tp1-Funciones.c
  *
  *  Created on: 14 abr. 2021
- *      Author: Usuario
+ *      Author: Ivan Keumurdji
  */
 
 #include "Tp1-Funciones.h"
-
 
 
 void MostrarOperando(int operandoA, int operandoB)
 {
 	if(operandoA ==-1111)
 	{
-		printf("\n|>A = <|");
+		printf("\n\n|>A = <|");
 	}
 	else
 	{
-		printf("\n|>A = %d<|",operandoA);
+		printf("\n\n|>A = %d<|",operandoA);
 
 	}
 	if(operandoB ==-1111)
 		{
-			printf("  |>B = <|\n");
+			printf("···|>B = <|\n");
 		}
 		else
 		{
-			printf("  |>B = %d<|\n",operandoB);
+			printf("···|>B = %d<|\n",operandoB);
 		}
 
 }
@@ -34,37 +33,64 @@ void MostrarOperando(int operandoA, int operandoB)
 int IngresarOperando(void)
 {
 	int operando;
-	printf("\nIngrese un numero: ");
+	printf("\n·Ingrese un numero: ");
 	scanf("%d", &operando);
 
 	return operando;
 }
 
-void SumarOperandos(int operandoA, int operandoB)
+int ComprobarIngreso(int operandoA, int operandoB)//opcion 3
+{
+	int estado;
+
+
+
+	if(operandoA==-1111 || operandoB==-1111)
+	{
+		printf("\n|-¡¡Falta ingresar operando!!-|\n");
+		printf("-----------------------------------------------------------------\n\n");
+		estado = 0;
+	}
+	else
+	{
+		printf("\n|-Se calcularon todas las operaciones-|\n");
+		printf("-----------------------------------------------------------------\n\n");
+		estado = 1;
+	}
+	return estado;
+}
+
+
+
+int SumarOperandos(int operandoA, int operandoB)
 {
 	int suma;
 	suma = operandoA + operandoB;
-	RecibirSuma(suma);
+
+	return suma;
 }
-void RestarOperandos(int operandoA, int operandoB)
+int RestarOperandos(int operandoA, int operandoB)
 {
 	int resta;
 	resta =operandoA - operandoB;
-	RecibirResta(resta);
+	return resta;
 }
-void MultiplicarOperandos(int operandoA, int operandoB)
+int MultiplicarOperandos(int operandoA, int operandoB)
 {
 	int multiplicar;
 	multiplicar = operandoA * operandoB;
-	RecibirMultiplicacion(multiplicar);
+
+	return multiplicar;
 }
-void DividirOperandos(float operandoA, int operandoB)
+float DividirOperandos(float operandoA, int operandoB)
 {
 	float dividir;
-	dividir =operandoA / operandoB;
-	RecibirDivision(dividir);
+
+		dividir =operandoA / operandoB;
+
+	return dividir;
 }
-void FactorialOperando(int operando)
+int FactorialOperandoA(int operando)
 {
 	int i;
 	int factorial;
@@ -73,48 +99,33 @@ void FactorialOperando(int operando)
 	{
 		factorial *= i;
 	}
-	RecibirFactorial(factorial);
-}
-void FactorialOperando2(int operando2)
-{
-	int i;
-	int factorial2;
-	factorial2=1;
-	for(i = operando2; i > 1; i--)
-	{
-		factorial2 *= i;
-	}
-	RecibirFactorial2(factorial2);
+	return factorial;
 }
 
-void RecibirSuma(int suma)
+
+void MostrarSuma(int suma)//opcion 4
 {
-	printf("%d", suma);
-}
-void RecibirResta(int resta)
-{
-	printf("%d", resta);
-}
-void RecibirMultiplicacion(int multiplicar)
-{
-	printf("%d", multiplicar);
-}
-void RecibirDivision(float dividir)
-{
-	printf("%f", dividir);
-}
-void RecibirFactorial(int factorial)
-{
-	printf("%d", factorial);
-}
-void RecibirFactorial2(int factorial2)
-{
-	printf("%d", factorial2);
+	printf("\nEl resultado de la suma (A+B) es: %d", suma);
 }
 
-/*void MostrarSuma(int);
-void MostrarResta(int);
-void MostrarMultiplicacion(int);
-void MostrarDivision(float);
-void MostrarFactorial(int);
-void MostrarFactorial2(int);*/
+
+void MostrarResta(int resta)
+{
+	printf("\nEl resultado de la resta (A-B) es: %d", resta);
+}
+void MostrarMultiplicacion(int multiplica)
+{
+	printf("\nEl resultado de la multiplicacion (A*B) es: %d", multiplica);
+}
+void MostrarDivision(float divide)
+{
+	printf("\nEl resultado de la divicion (A/B) es: %.2f", divide);
+}
+void MostrarFactorialA(int factorialA)
+{
+	printf("\nEl factorial de A es: %d", factorialA);
+}
+void MostrarFactorialB(int factorialB)
+{
+	printf("\nEl factorial de B es: %d\n", factorialB);
+}
