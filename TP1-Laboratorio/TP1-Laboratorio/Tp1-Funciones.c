@@ -11,6 +11,7 @@ void Linias (void)
 {
 	int i;
 	int j;
+
 	for(j=1;j<2;j++)
 	{
 		for(i=1;i<50;i++)

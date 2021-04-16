@@ -70,6 +70,7 @@ int main(void) {
 		printf(" 5. Salir\n");
 		printf("~Elija una opcion(1-5): ");
 		scanf("%d", &opcion);
+		printf("\n");
 
 		switch(opcion)
 		{
@@ -146,7 +147,7 @@ int main(void) {
 			break;
 			case 5:
 				Linias();
-				printf("\n|-Esta saliendo del programa-|\n\n");
+				printf("|-Esta saliendo del programa-|\n\n");
 				Linias();
 			break;
 			default :
