@@ -10,17 +10,11 @@
 void Linias (void)
 {
 	int i;
-	int j;
-
-	for(j=1;j<2;j++)
+	for(i=1;i<40;i++)
 	{
-		for(i=1;i<50;i++)
-		{
-			printf("~~");
-		}
-		printf("\n\n");
+		printf("~~");
 	}
-
+	printf("\n\n");
 }
 
 void MostrarOperando(int operandoA, int operandoB)
@@ -45,6 +39,7 @@ void MostrarOperando(int operandoA, int operandoB)
 
 }
 
+//opcion 1 y 2
 int IngresarOperando(void)
 {
 	int operando;
@@ -54,11 +49,10 @@ int IngresarOperando(void)
 	return operando;
 }
 
-int ComprobarIngreso(int operandoA, int operandoB)//opcion 3
+//opcion 3
+int ComprobarIngreso(int operandoA, int operandoB)
 {
 	int estado;
-
-
 
 	if(operandoA==-1111 || operandoB==-1111)
 	{
@@ -76,9 +70,6 @@ int ComprobarIngreso(int operandoA, int operandoB)//opcion 3
 	}
 	return estado;
 }
-
-
-
 int SumarOperandos(int operandoA, int operandoB)
 {
 	int suma;
@@ -112,20 +103,34 @@ int FactorialOperandoA(int operando)
 	int i;
 	int factorial;
 	factorial=1;
-	for(i = operando; i > 1; i--)
+
+	if(operando > -1 && operando < 12)
 	{
-		factorial *= i;
+		for(i = operando; i > 1; i--)
+		{
+			factorial *= i;
+		}
 	}
+	else
+	{
+		if(operando < 0)
+		{
+			factorial = -1;
+		}
+		else
+		{
+			factorial = 0;
+		}
+	}
+
 	return factorial;
 }
 
-
-void MostrarSuma(int suma)//opcion 4
+//opcion 4
+void MostrarSuma(int suma)
 {
 	printf("\n¬El resultado de la suma (A+B) es: %d", suma);
 }
-
-
 void MostrarResta(int resta)
 {
 	printf("\n¬El resultado de la resta (A-B) es: %d", resta);
@@ -140,9 +145,37 @@ void MostrarDivision(float divide)
 }
 void MostrarFactorialA(int factorialA)
 {
-	printf("\n¬El factorial de A es: %d", factorialA);
+	if(factorialA == 0)
+	{
+		printf("\n¬No se pudo resolver el factorial de A, por ser muy grande,");
+	}
+	else
+	{
+		if(factorialA == -1)
+		{
+			printf("\n¬No se pudo resolver el factorial de A, por ser negativo,");
+		}
+		else
+		{
+			printf("\n¬El factorial de A es: %d", factorialA);
+		}
+	}
 }
 void MostrarFactorialB(int factorialB)
 {
-	printf("\n¬El factorial de B es: %d\n\n", factorialB);
+	if(factorialB == 0)
+		{
+			printf(" y no se pudo resolver el factorial de B, por ser muy grande.\n\n");
+		}
+		else
+		{
+			if(factorialB == -1)
+			{
+				printf(" y no se pudo resolver el factorial de B, por ser negativo.\n\n");
+			}
+			else
+			{
+				printf(" y el factorial de B es: %d\n\n", factorialB);
+			}
+		}
 }

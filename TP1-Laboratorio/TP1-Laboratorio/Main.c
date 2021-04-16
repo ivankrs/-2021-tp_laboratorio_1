@@ -31,14 +31,13 @@
  */
 
 
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "Tp1-Funciones.h"
 
 
 
-int main(void) {
-
+int main(void)
+{
 	int opcion;
 	int	numeroIngresado1;
 	int numeroIngresado2;
