@@ -31,7 +31,6 @@
  */
 
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "Tp1-Funciones.h"
@@ -61,7 +60,8 @@ int main(void) {
 
 	do
 	{
-		printf(">>>-MENU CALCULADORA-<<<");
+		Linias();
+		printf(">>>-MENU CALCULADORA-<<<\n");
 		MostrarOperando(numeroIngresado1, numeroIngresado2);
 		printf("\n 1. Ingrese primer operador\n");
 		printf(" 2. Ingrese segundo operador\n");
@@ -70,22 +70,22 @@ int main(void) {
 		printf(" 5. Salir\n");
 		printf("~Elija una opcion(1-5): ");
 		scanf("%d", &opcion);
-		if(opcion<1 || opcion>5)
-		{
-			printf("-----------------------------------------------------------------\n\n");
-		}
 
 		switch(opcion)
 		{
 			case 1:
+				Linias();
+				MostrarOperando(numeroIngresado1, numeroIngresado2);
 				numeroIngresado1 = IngresarOperando();
-				printf("\n|-Se guardo el primer operador-|\n");
-				printf("-----------------------------------------------------------------\n\n");
+				printf("\n|-Se guardo el primer operador-|\n\n");
+
 			break;
 			case 2:
+				Linias();
+				MostrarOperando(numeroIngresado1, numeroIngresado2);
 				numeroIngresado2= IngresarOperando();
-				printf("\n|-Se guardo el segundo operador-|\n");
-				printf("-----------------------------------------------------------------\n\n");
+				printf("\n|-Se guardo el segundo operador-|\n\n");
+
 			break;
 			case 3:
 				 auxEstado = ComprobarIngreso(numeroIngresado1, numeroIngresado2);
@@ -114,12 +114,15 @@ int main(void) {
 			case 4:
 				if(auxEstado==5)
 				{
+					Linias();
+					printf("|-Se Muestran todas las operaciones-|\n");
+					MostrarOperando(numeroIngresado1, numeroIngresado2);
 					MostrarSuma(suma);
 					MostrarResta(resta);
 					MostrarMultiplicacion(multiplica);
 					if(divide==-1111)
 					{
-						printf("\n¡¡No se puede dividir por 0(cero)!!");
+						printf("\n¬El resultado de la division es: No se puede dividir por cero");
 					}
 					else
 					{
@@ -127,8 +130,8 @@ int main(void) {
 					}
 					MostrarFactorialA(factorialA);
 					MostrarFactorialB(factorialB);
-					printf("\n|-Se Muestran todas las operaciones-|\n");
-					printf("-----------------------------------------------------------------\n\n");
+
+
 					numeroIngresado1=-1111;
 					numeroIngresado2=-1111;
 					auxEstado=0;
@@ -136,13 +139,15 @@ int main(void) {
 				}
 				else
 				{
-					printf("\n|-¡¡Falta realizar las operaciones!!-|\n");
-					printf("-----------------------------------------------------------------\n\n");
+					Linias();
+					printf("|-¡¡Falta realizar las operaciones!!-|\n\n");
+
 				}
 			break;
 			case 5:
-				printf("\n|-Esta saliendo del programa-|\n");
-				printf("-----------------------------------------------------------------\n\n");
+				Linias();
+				printf("\n|-Esta saliendo del programa-|\n\n");
+				Linias();
 			break;
 			default :
 				continue;

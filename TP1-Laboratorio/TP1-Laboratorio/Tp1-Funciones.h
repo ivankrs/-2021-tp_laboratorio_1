@@ -12,6 +12,8 @@
 #include <stdlib.h>
 
 
+void Linias (void);
+
 void MostrarOperando(int, int);
 int IngresarOperando(void);
 int ComprobarIngreso(int, int);
@@ -22,8 +24,6 @@ int RestarOperandos(int, int);
 int MultiplicarOperandos(int, int);
 float DividirOperandos(float, int);
 int FactorialOperandoA(int);
-
-
 
 
 void MostrarSuma(int);

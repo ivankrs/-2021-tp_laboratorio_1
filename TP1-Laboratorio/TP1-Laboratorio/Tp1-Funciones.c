@@ -7,16 +7,30 @@
 
 #include "Tp1-Funciones.h"
 
+void Linias (void)
+{
+	int i;
+	int j;
+	for(j=1;j<2;j++)
+	{
+		for(i=1;i<50;i++)
+		{
+			printf("~~");
+		}
+		printf("\n\n");
+	}
+
+}
 
 void MostrarOperando(int operandoA, int operandoB)
 {
 	if(operandoA ==-1111)
 	{
-		printf("\n\n|>A = <|");
+		printf("\n|>A = <|");
 	}
 	else
 	{
-		printf("\n\n|>A = %d<|",operandoA);
+		printf("\n|>A = %d<|",operandoA);
 
 	}
 	if(operandoB ==-1111)
@@ -47,14 +61,16 @@ int ComprobarIngreso(int operandoA, int operandoB)//opcion 3
 
 	if(operandoA==-1111 || operandoB==-1111)
 	{
-		printf("\n|-¡¡Falta ingresar operando!!-|\n");
-		printf("-----------------------------------------------------------------\n\n");
+		Linias();
+		printf("|-¡¡Falta ingresar operando!!-|\n\n");
+
 		estado = 0;
 	}
 	else
 	{
-		printf("\n|-Se calcularon todas las operaciones-|\n");
-		printf("-----------------------------------------------------------------\n\n");
+		Linias();
+		printf("|-Se calcularon todas las operaciones-|\n\n");
+
 		estado = 1;
 	}
 	return estado;
@@ -105,27 +121,27 @@ int FactorialOperandoA(int operando)
 
 void MostrarSuma(int suma)//opcion 4
 {
-	printf("\nEl resultado de la suma (A+B) es: %d", suma);
+	printf("\n¬El resultado de la suma (A+B) es: %d", suma);
 }
 
 
 void MostrarResta(int resta)
 {
-	printf("\nEl resultado de la resta (A-B) es: %d", resta);
+	printf("\n¬El resultado de la resta (A-B) es: %d", resta);
 }
 void MostrarMultiplicacion(int multiplica)
 {
-	printf("\nEl resultado de la multiplicacion (A*B) es: %d", multiplica);
+	printf("\n¬El resultado de la multiplicacion (A*B) es: %d", multiplica);
 }
 void MostrarDivision(float divide)
 {
-	printf("\nEl resultado de la divicion (A/B) es: %.2f", divide);
+	printf("\n¬El resultado de la divicion (A/B) es: %.2f", divide);
 }
 void MostrarFactorialA(int factorialA)
 {
-	printf("\nEl factorial de A es: %d", factorialA);
+	printf("\n¬El factorial de A es: %d", factorialA);
 }
 void MostrarFactorialB(int factorialB)
 {
-	printf("\nEl factorial de B es: %d\n", factorialB);
+	printf("\n¬El factorial de B es: %d\n\n", factorialB);
 }
