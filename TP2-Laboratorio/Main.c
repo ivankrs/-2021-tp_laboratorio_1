@@ -5,4 +5,16 @@
  *      Author: ivank
  */
 
+#include "tp2-Funciones.h"
 
+int main()
+{
+
+
+
+
+
+
+
+	return 0;
+}
