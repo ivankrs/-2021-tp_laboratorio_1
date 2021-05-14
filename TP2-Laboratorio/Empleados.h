@@ -21,8 +21,33 @@ typedef struct{
 }sEmpleado;
 
 
-sEmpleado PedirDato();
-int PrintArrayEmpleados(sEmpleado*, int);
+/**
+ * @fn int HayEspacioEnArrayEmpleados(sEmpleado*, int)
+ * @brief recorre la estructura sEmpleado y cambia la bandera hayEspacio a VACIO
+ *
+ * @param sEmpleado* pArray
+ * @param int  cantidad
+ * @return 0
+ */
 int HayEspacioEnArrayEmpleados(sEmpleado*, int);
+/**
+ * @fn sEmpleado PedirDato()
+ * @brief permite ingresar datos del empleado al array de estructura sEmpleado. Y cambia la bandera hayEspacio a OCUPADO.
+ *
+ * @return sEmpleado empleadoIngresado.
+ */
+sEmpleado PedirDato();
+
+int CargarEmpleado(sEmpleado*, int);
+int BuscarEspacio(sEmpleado*, int );
+/**
+ * @fn void PrintArrayEmpleados(sEmpleado*, int)
+ * @brief recorre el array imprimiendo las pociciones donde la bandera hayEspacio a OCUPADO.
+ *
+ * @param sEmpleado pArray
+ * @param int cantidad
+ */
+void PrintArrayEmpleados(sEmpleado*, int);
+
 
 #endif /* EMPLEADOS_H_ */

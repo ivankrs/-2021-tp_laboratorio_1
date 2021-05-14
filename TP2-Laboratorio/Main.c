@@ -8,61 +8,53 @@
 #include "tp2-Funciones.h"
 #include "Empleados.h"
 
-#define CantidadEmpleados 3 //mil empleados MAX
+#define CantidadEmpleados 2//mil empleados MAX
 
 int main()
 {
-	//int opcion;
+
+	int opcionMenu;
+	int estado;
+	int aux;
+	int idEmpleado;
 	sEmpleado arrayEmpleados[CantidadEmpleados];
-	//sEmpleado auxiliar;
-
-	setbuf(stdout, NULL);
-
-	HayEspacioEnArrayEmpleados(arrayEmpleados, CantidadEmpleados);//me cambia espacio a VACIO
-
-	PedirDato();
-
-	/*strncpy(auxiliar.nombre,"Juan",sizeof(auxiliar.nombre));
-	strncpy(auxiliar.apellido,"Perez",sizeof(auxiliar.apellido));
-	auxiliar.id = 10031;
-	auxiliar.salario = 300.5;
-	auxiliar.sector = 2;
-	auxiliar.hayEspacio=OCUPADO;
-
-	arrayEmpleados[1]=auxiliar;*/
+	setbuf(stdout,NULL);
+	idEmpleado=0;
 
 
-	PrintArrayEmpleados(arrayEmpleados, CantidadEmpleados);
 
+	HayEspacioEnArrayEmpleados(arrayEmpleados, CantidadEmpleados);//me cambia hayEspacio a VACIO
 
-		/*do
+		do
 		{
-
-			printf(">>>- MENU -<<<\n");
-			printf("\n 1. Alta\n");
-			printf(" 2. Modificar \n");
-			printf(" 3. Baja\n");
-			printf(" 4. Mostrar\n");
-			printf("Elija una opcion(1-4): ");
-
-			scanf("%d", &opcion);
-
-			switch(opcion)
+			Funcion_Menu();
+			estado=get_Nuemero(&opcionMenu, "Ingrese una opcion: ", "Error. Debe ser entre 0 y 4", 3);
+			if(estado!=-1)
 			{
-				case 1:
-				break;
-				case 2:
-				break;
-				case 3:
-				break;
-				case 4:
-				break;
-				case 5:
-				break;
-			}
+				switch(opcionMenu)
+				{
+					case 0:
+						printf("\n|_*Salio del Sistema*_|");
+					break;
+					case 1:
+						aux = CargarEmpleado(arrayEmpleados, CantidadEmpleados);
+						arrayEmpleados->id[&aux]=idEmpleado;
+						printf("\n%d", arrayEmpleados->id[&aux]);
+						printf("\n%d",aux);
+						idEmpleado+=1;
+					break;
+					case 2:
 
-		}while(opcion!=4);
-		*/
+					break;
+					case 3:
+
+					break;
+					case 4:
+						PrintArrayEmpleados(arrayEmpleados, CantidadEmpleados);
+					break;
+				}
+			}
+		}while(opcionMenu!=0);
 
 	return 0;
 }

@@ -10,11 +10,26 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
+
+int HayEspacioEnArrayEmpleados(sEmpleado* pArray, int cantidad)
+{
+	int i;
+	if(pArray!=NULL&&cantidad>0)
+	{
+		for(i=0; i<cantidad; i++)
+		{
+			pArray[i].hayEspacio = VACIO;
+		}
+	}
+	return 0;
+}
+
 sEmpleado PedirDato()
 {
 	sEmpleado empleadoIngresado;
 
-	empleadoIngresado.id = 1000;
 	printf("\nNombre del empleado: ");
 	fflush(stdin);
 	scanf("%[^\n]", empleadoIngresado.nombre);
@@ -26,47 +41,75 @@ sEmpleado PedirDato()
 	printf("\nSector del empleado: ");
 	scanf("%d",&empleadoIngresado.sector);
 
-	empleadoIngresado.hayEspacio = OCUPADO;
-
-
-
 	return empleadoIngresado;
 }
 
-int PrintArrayEmpleados(sEmpleado* pArray, int cantidad)
+
+int CargarEmpleado(sEmpleado pArray[], int cantidad)
 {
-	int retorno;
+    int i;
+
+    sEmpleado auxiliar;
+    if(pArray!=NULL&&cantidad>0)
+    {
+   		i = BuscarEspacio(pArray, cantidad);
+		if(i!=-1)
+		{
+
+			auxiliar = PedirDato();
+
+			auxiliar.hayEspacio=OCUPADO;
+
+			pArray[i]=auxiliar;
+
+			printf("\n*Empleado generado con exito*\n");
+		}
+		else
+		{
+			printf("\n|_No hay espacio!!_|\n");
+		}
+    }
+    return i;
+}
+
+int BuscarEspacio(sEmpleado pArray[], int cantidad)
+{
+	int i;
+	int index;
+	index = -1;
+	for(i=0; i<cantidad; i++)
+	{
+		if(pArray[i].hayEspacio==VACIO)
+		{
+			index = i;
+
+			break;
+		}
+	}
+	return index;
+}
+
+void PrintArrayEmpleados(sEmpleado* pArray, int cantidad)
+{
 	int i;
 
-	retorno=0;
-
-	if(pArray!=NULL&&cantidad>0)
+	if(pArray!=NULL && cantidad>0)
 	{
 		for(i=0; i<cantidad; i++)
 		{
 			if(pArray[i].hayEspacio==OCUPADO)
 			{
-				printf("\nId: %d - nombre: %s - apellido: %s - salaio: %f - sector: %d", pArray[i].id, pArray[i].nombre, pArray[i].apellido, pArray[i].salario,pArray[i].sector);
+				printf("\nLugar: %d -- Id: %d -- Nombre: %s -- Apellido: %s -- Salario: %f -- Sector: %d", i,
+																										 pArray[i].id,
+																									 	 pArray[i].nombre,
+																									 	 pArray[i].apellido,
+																									 	 pArray[i].salario,
+																									 	 pArray[i].sector);
 			}
 		}
 	}
-	return retorno;
+	printf("\n\n");
 }
 
-int HayEspacioEnArrayEmpleados(sEmpleado* pArray, int cantidad)
-{
-	int retorno;
-	int i;
 
-	retorno=0;
-
-	if(pArray!=NULL&&cantidad>0)
-	{
-		for(i=0; i<cantidad; i++)
-		{
-			pArray[i].hayEspacio = VACIO;
-		}
-	}
-	return retorno;
-}
 
