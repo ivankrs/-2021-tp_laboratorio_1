@@ -17,7 +17,7 @@
  * @brief Imprime un menu.
  *
  */
-void Funcion_Menu(void);
+void Funcion_Menu(char*, char*,char*,char*,char*,char*);
 /**
  * @fn int get_Nuemero(int*, char*, char*, int, int, int)
  * @brief pide el ingreso de un entero, un mensaje para pedir el entero, un mensaje de error, y una cantidad de reintentos.
@@ -27,6 +27,10 @@ void Funcion_Menu(void);
  * @param char* mensaje
  * @param char* mensajeError
  * @param int reintentos
- */
-int get_Nuemero(int*,char*,char*,int);
+ */ //MALMALMALMLMAaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+int ObtenerNumeroInt(int*,char*,char*,int,int,int);
+int ObtenerNumeroFloat(float*,char*,char*,float,float,int);
+int ObtenerNumeroRespuesta(char*,char*,int);
+
+int ComparaEstado(int, char*, char*);
 #endif /* TP2_FUNCIONES_H_ */

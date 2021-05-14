@@ -5,21 +5,19 @@
  *      Author: ivank
  */
 
-#include "tp2-Funciones.h"
 #include "Empleados.h"
 
-#define CantidadEmpleados 2//mil empleados MAX
+#define CantidadEmpleados 10//mil empleados MAX
 
 int main()
 {
 
 	int opcionMenu;
-	int estado;
-	int aux;
-	int idEmpleado;
+	int estadoCargaEmpleado;
 	sEmpleado arrayEmpleados[CantidadEmpleados];
 	setbuf(stdout,NULL);
-	idEmpleado=0;
+	estadoCargaEmpleado=-1;
+	opcionMenu=-1;
 
 
 
@@ -27,30 +25,61 @@ int main()
 
 		do
 		{
-			Funcion_Menu();
-			estado=get_Nuemero(&opcionMenu, "Ingrese una opcion: ", "Error. Debe ser entre 0 y 4", 3);
-			if(estado!=-1)
+			Funcion_Menu(">Menu de Opciones<","0. Salir","1. Altas","2. Modificar","3. Bajas","4. Informar");
+			if(ObtenerNumeroInt(&opcionMenu, "Ingrese una opcion: ", "Error. Debe ser entre 0 y 4",-1,5,2)!=-1)
 			{
 				switch(opcionMenu)
 				{
 					case 0:
 						printf("\n|_*Salio del Sistema*_|");
 					break;
-					case 1:
-						aux = CargarEmpleado(arrayEmpleados, CantidadEmpleados);
-						arrayEmpleados->id[&aux]=idEmpleado;
-						printf("\n%d", arrayEmpleados->id[&aux]);
-						printf("\n%d",aux);
-						idEmpleado+=1;
-					break;
-					case 2:
 
+					case 1://cargar
+						printf("\n*Cargue un empleado...*\n");
+						estadoCargaEmpleado=CargarEmpleado(arrayEmpleados, CantidadEmpleados);
 					break;
-					case 3:
 
+					case 2: //modificar
+						if(ComparaEstado(estadoCargaEmpleado, "Ingreso a Modificar...", "Error. Debe ingresar algun empleado")!=1)
+						{
+							break;
+						}
+						else
+						{
+							if(ModificacionEmpleados(arrayEmpleados, CantidadEmpleados)==1)
+							{
+								printf("*Se modifico con exito*\n\n");
+							}
+						}
 					break;
-					case 4:
-						PrintArrayEmpleados(arrayEmpleados, CantidadEmpleados);
+
+					case 3: //bajar
+						if(ComparaEstado(estadoCargaEmpleado, "Ingreso a Baja...", "Error. Debe ingresar algun empleado")!=1)
+						{
+							break;
+						}
+						else
+						{
+							if(EliminarEmpleado(arrayEmpleados, CantidadEmpleados)==1)
+							{
+								printf("\n*Se borro con exito*\n\n");
+								if(BuscarPorOcupado(arrayEmpleados, CantidadEmpleados)!=1)
+								{
+									estadoCargaEmpleado=-1;
+								}
+							}
+						}
+					break;
+
+					case 4: //Informar Ordenado
+						if(ComparaEstado(estadoCargaEmpleado, "Ingreso a Informar...", "Error. Debe ingresar algun empleado")!=1)
+						{
+							break;
+						}
+						else
+						{
+								OrdanarEmpleados(arrayEmpleados, CantidadEmpleados);
+						}
 					break;
 				}
 			}

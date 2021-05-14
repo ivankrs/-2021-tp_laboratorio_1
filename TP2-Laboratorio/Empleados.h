@@ -8,6 +8,7 @@
 #ifndef EMPLEADOS_H_
 #define EMPLEADOS_H_
 
+#include "tp2-Funciones.h"
 #define OCUPADO 0
 #define VACIO 1
 
@@ -39,6 +40,9 @@ int HayEspacioEnArrayEmpleados(sEmpleado*, int);
 sEmpleado PedirDato();
 
 int CargarEmpleado(sEmpleado*, int);
+sEmpleado ModificarEmpleado(sEmpleado*);
+int ModificacionEmpleados(sEmpleado*, int);
+int EliminarEmpleado(sEmpleado*, int);
 int BuscarEspacio(sEmpleado*, int );
 /**
  * @fn void PrintArrayEmpleados(sEmpleado*, int)
@@ -47,7 +51,11 @@ int BuscarEspacio(sEmpleado*, int );
  * @param sEmpleado pArray
  * @param int cantidad
  */
-void PrintArrayEmpleados(sEmpleado*, int);
+void PrintUnEmpleado(sEmpleado);
+int PrintArrayEmpleados(sEmpleado*, int);
+void OrdanarEmpleados(sEmpleado*, int);
+int BuscarPorId(sEmpleado*, int, int);
+int BuscarPorOcupado(sEmpleado*, int);
 
 
 #endif /* EMPLEADOS_H_ */
