@@ -76,7 +76,7 @@ int ObtenerNumeroFloat(float* pRespuesta,char* mensaje,char* mensajeError,float 
 int ComparaEstado(int estado, char* mensaje, char* mensajeError)
 {
 	int retorno;
-	if((estado!=1 || estado!=-1) && mensaje!=NULL && mensajeError!=NULL)
+	if((estado==1 || estado==-1) && mensaje!=NULL && mensajeError!=NULL)
 	{
 		if(estado==1)
 		{
@@ -94,38 +94,4 @@ int ComparaEstado(int estado, char* mensaje, char* mensajeError)
 	}
 	return retorno;
 }
-int ObtenerNumeroRespuesta(char* mensaje,char* mensajeError,int reintentos)
-{
-	int numero;
-	int i;
-	int retorno;
-	retorno=-1;
-
-	if(mensaje!= NULL && mensajeError!= NULL && reintentos>-1)
-	{
-		for(i=reintentos;i>0;i--)
-		{
-			printf("\n%s", mensaje);
-			scanf("%d",&numero);
-
-			if(numero==1)
-			{
-				retorno=numero;
-				printf("\n");
-				break;
-			}
-			else
-			{
-				if(numero==0)
-				{
-					printf("|_%s_|\n\n", mensajeError);
-					retorno=-numero;
-				}
-
-			}
-		}
-	}
-	return retorno;
-}
-
 

@@ -341,22 +341,37 @@ void OrdanarEmpleados(sEmpleado pArray[], int cantidad)
 		{
 			for(j=i+1;j<cantidad;j++)
 			{
+
 				if(pArray[i].hayEspacio==OCUPADO && pArray[j].hayEspacio==OCUPADO)
 				{
-					if(pArray[i].sector==pArray[j].sector)
+					if(pArray[i].sector>pArray[j].sector)
 					{
-						if(pArray[i].apellido>pArray[j].apellido)
+						auxiliarEmpleado = pArray[i];
+						pArray[i]=pArray[j];
+						pArray[j]=auxiliarEmpleado;
+
+						if(pArray[i].sector==pArray[j].sector)
 						{
-							auxiliarEmpleado = pArray[i];
-							pArray[i]=pArray[j];
-							pArray[j]=auxiliarEmpleado;
+							if(pArray[i].apellido < pArray[j].apellido)
+							{
+								auxiliarEmpleado = pArray[i];
+								pArray[i]=pArray[j];
+								pArray[j]=auxiliarEmpleado;
+							}
 						}
 					}
+
 				}
 			}
 		}
 
 	}
 	PrintArrayEmpleados(pArray, cantidad);
+
 }
+
+
+
+
+
 

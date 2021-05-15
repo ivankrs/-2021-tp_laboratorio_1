@@ -19,18 +19,39 @@
  */
 void Funcion_Menu(char*, char*,char*,char*,char*,char*);
 /**
- * @fn int get_Nuemero(int*, char*, char*, int, int, int)
- * @brief pide el ingreso de un entero, un mensaje para pedir el entero, un mensaje de error, y una cantidad de reintentos.
- * 		  Se compara el numero entero con las opciones posibles. De no corresponder a una de las opciones, se pide que reingrese, hasta la cantidad maxima de
- * 		  reintentos, caso contrario, que el entero sea parte de las opciones, devuelve el entero.
- * @param int* pRespuesta
- * @param char* mensaje
- * @param char* mensajeError
- * @param int reintentos
- */ //MALMALMALMLMAaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+ * @fn int ObtenerNumeroInt(int*, char*, char*, int, int, int)
+ * @brief permite pedir un numero entero, al mismo tiempo marcar limites maximos y minimos, y una cantidad de reintentos.
+ *
+ * @param int
+ * @param char
+ * @param char
+ * @param int
+ * @param int
+ * @param int
+ * @return int
+ */
 int ObtenerNumeroInt(int*,char*,char*,int,int,int);
+/**
+ * @fn int ObtenerNumeroFloat(float*, char*, char*, float, float, int)
+ * @brief permite pedir un numero flotante, al mismo tiempo marcar limites maximos y minimos, y una cantidad de reintentos.
+ *
+ * @param float
+ * @param char
+ * @param char
+ * @param int
+ * @param int
+ * @param int
+ * @return int
+ */
 int ObtenerNumeroFloat(float*,char*,char*,float,float,int);
-int ObtenerNumeroRespuesta(char*,char*,int);
-
+/**
+ * @fn int ComparaEstado(int, char*, char*)
+ * @brief compara las banderas recibidas, siendo 1 o -1.
+ *
+ * @param int
+ * @param char
+ * @param char
+ * @return int
+ */
 int ComparaEstado(int, char*, char*);
 #endif /* TP2_FUNCIONES_H_ */

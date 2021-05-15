@@ -7,21 +7,22 @@
 
 #include "Empleados.h"
 
-#define CantidadEmpleados 10//mil empleados MAX
+#define CantidadEmpleados 1000//mil empleados MAX
 
 int main()
 {
 
+
+	sEmpleado arrayEmpleados[CantidadEmpleados];
 	int opcionMenu;
 	int estadoCargaEmpleado;
-	sEmpleado arrayEmpleados[CantidadEmpleados];
 	setbuf(stdout,NULL);
 	estadoCargaEmpleado=-1;
 	opcionMenu=-1;
 
 
 
-	HayEspacioEnArrayEmpleados(arrayEmpleados, CantidadEmpleados);//me cambia hayEspacio a VACIO
+		HayEspacioEnArrayEmpleados(arrayEmpleados, CantidadEmpleados);//me cambia hayEspacio a VACIO
 
 		do
 		{
@@ -71,7 +72,7 @@ int main()
 						}
 					break;
 
-					case 4: //Informar Ordenado
+					case 4:
 						if(ComparaEstado(estadoCargaEmpleado, "Ingreso a Informar...", "Error. Debe ingresar algun empleado")!=1)
 						{
 							break;
